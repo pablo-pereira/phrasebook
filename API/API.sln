@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A43BE9A1-4AFA-4BB2-84A9-3797CEAC558F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{A43BE9A1-4AFA-4BB2-84A9-3797CEAC558F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{732F3C82-21CA-43C9-89A8-D572D6BE936D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{732F3C82-21CA-43C9-89A8-D572D6BE936D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7982E086-AD9C-4DD5-B1DC-3544026E792B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{7982E086-AD9C-4DD5-B1DC-3544026E792B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Businnes\Business.csproj", "{5C380B72-BD83-4557-8DB5-02A9959C0F1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7982E086-AD9C-4DD5-B1DC-3544026E792B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7982E086-AD9C-4DD5-B1DC-3544026E792B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7982E086-AD9C-4DD5-B1DC-3544026E792B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C380B72-BD83-4557-8DB5-02A9959C0F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C380B72-BD83-4557-8DB5-02A9959C0F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C380B72-BD83-4557-8DB5-02A9959C0F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C380B72-BD83-4557-8DB5-02A9959C0F1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
