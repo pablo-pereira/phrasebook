@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace Services.OpenAI.Domain.Responses.Chat
 {
-    internal class ChatChoisesResponse : BaseChoiseResponse
+    internal class MessageResponse
     {
-        [JsonPropertyName("message")]
-        MessageResponse MessageResponse { get; set; }
+        [JsonPropertyName("role")]
+        public string Role { get; set; }
+
+        [JsonPropertyName("content")]
+        public string Content { get; set; }
     }
 }

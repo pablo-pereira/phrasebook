@@ -1,22 +1,32 @@
-﻿using System.Text;
+﻿using Microsoft.Extensions.Configuration;
+using Services.OpenAI.Domain.Responses.Chat;
+using Services.OpenAI.Domain.Responses.Completions;
+using Services.OpenAI.Domain.Responses.Model;
+using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 
 namespace Services.OpenAI
 {
-    internal class OpenAIClient
+    public class OpenAIClient : IOpenAIClient
     {
-        static async Task Main(string[] args)
+
+        private readonly IHttpClientFactory _httpClientFactory;
+        public OpenAIClient(IHttpClientFactory httpClientFactory)
         {
-            string apiKey = "tu_api_key_aqui";
+            _httpClientFactory = httpClientFactory;
+        }
+
+
+        public async Task GetCompletion(string[] prompts)
+        {
             string prompt = "¡Hola, OpenAI!";
 
-            string apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
-
-            using (HttpClient client = new HttpClient())
+            var httpClient = _httpClientFactory.CreateClient();
+            using (httpClient)
             {
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
 
                 var requestData = new
                 {
@@ -27,14 +37,15 @@ namespace Services.OpenAI
                 var jsonRequest = JsonSerializer.Serialize(requestData);
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync(apiUrl, content);
+                var response = await httpClient.PostAsync("");
+                
                 var jsonResponse = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
                     // Procesar la respuesta exitosa
-                    dynamic result = JsonSerializer.Deserialize(jsonResponse);
-                    string generatedText = result.choices[0].text;
+                    var result = JsonSerializer.Deserialize<CompletionsResponse>(jsonResponse);
+                    string? generatedText = result?.Choices[0].Text;
 
                     Console.WriteLine("Texto generado: " + generatedText);
                 }
